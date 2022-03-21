@@ -37,14 +37,14 @@ window.onload = () => {
   $("#webcambutton").click(() => {
     imagebox = $("#videobox");
     link = $("#link");
-    input = $("#imageinput")[0];
-    if (input.files && input.files[0]) {
-      let formData = new FormData();
-      formData.append("video", input.files[0]);
+    //input = $("#imageinput")[0];
+    //if (input.files && input.files[0]) {
+      //let formData = new FormData();
+      //formData.append("video", input.files[0]);
       $.ajax({
         url: "/detectwebcam", // fix this to your liking
         type: "POST",
-        data: formData,
+        //data: formData,
         cache: false,
         processData: false,
         contentType: false,
@@ -56,12 +56,11 @@ window.onload = () => {
           console.log(data);
           // bytestring = data["status"];
           // image = bytestring.split("'")[1];
-          $("#link").css("visibility", "visible");
-          $("#download").attr("href", "static/" + data);
+          $("#link").css("visibility", "hidden");
           console.log(data);
         },
       });
-    }
+    //}
   });
 };
 var fileTypes = ['m4v', 'mp4']; 
